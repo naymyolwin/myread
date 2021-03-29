@@ -19,6 +19,7 @@ function booklist(props) {
                   book.shelf === "currentlyReading" ? (
                     <li key={book.id}>
                       <Book
+                        book={book}
                         id={book.id}
                         title={book.title}
                         thumbnail={book.imageLinks.thumbnail}
@@ -40,6 +41,7 @@ function booklist(props) {
                   book.shelf === "wantToRead" ? (
                     <li key={book.id}>
                       <Book
+                        book={book}
                         id={book.id}
                         title={book.title}
                         thumbnail={book.imageLinks.thumbnail}
@@ -61,6 +63,7 @@ function booklist(props) {
                   book.shelf === "read" ? (
                     <li key={book.id}>
                       <Book
+                        book={book}
                         id={book.id}
                         title={book.title}
                         thumbnail={book.imageLinks.thumbnail}

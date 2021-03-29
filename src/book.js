@@ -16,7 +16,8 @@ function book(props) {
           <select
             defaultValue={props.shelf}
             onChange={(e) => {
-              return props.changeshelf(props.id, e);
+              return props.changeshelf(props.book, e);
+              //return props.changeshelf(props.id, e);
             }}
           >
             <option value="move" disabled>
