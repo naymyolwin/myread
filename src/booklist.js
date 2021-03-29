@@ -22,6 +22,7 @@ function booklist(props) {
                         title={book.title}
                         cover={book.cover}
                         author={book.author}
+                        shelf={book.shelf}
                         changeshelf={props.changeshelf}
                       />
                     </li>
@@ -42,6 +43,7 @@ function booklist(props) {
                         title={book.title}
                         cover={book.cover}
                         author={book.author}
+                        shelf={book.shelf}
                         changeshelf={props.changeshelf}
                       />
                     </li>
@@ -62,6 +64,7 @@ function booklist(props) {
                         title={book.title}
                         cover={book.cover}
                         author={book.author}
+                        shelf={book.shelf}
                         changeshelf={props.changeshelf}
                       />
                     </li>

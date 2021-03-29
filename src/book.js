@@ -14,6 +14,15 @@ function book(props) {
         ></div>
         <div className="book-shelf-changer">
           <select
+            defaultValue={
+              props.shelf === "Currently Reading"
+                ? "currentlyReading"
+                : props.shelf === "Want to Read"
+                ? "wantToRead"
+                : props.shelf === "Read"
+                ? "read"
+                : null
+            }
             onChange={(e) => {
               return props.changeshelf(props.id, e);
             }}
