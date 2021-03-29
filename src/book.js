@@ -9,20 +9,12 @@ function book(props) {
           style={{
             width: 128,
             height: 193,
-            backgroundImage: `url(${props.cover})`,
+            backgroundImage: `url(${props.thumbnail})`,
           }}
         ></div>
         <div className="book-shelf-changer">
           <select
-            defaultValue={
-              props.shelf === "Currently Reading"
-                ? "currentlyReading"
-                : props.shelf === "Want to Read"
-                ? "wantToRead"
-                : props.shelf === "Read"
-                ? "read"
-                : null
-            }
+            defaultValue={props.shelf}
             onChange={(e) => {
               return props.changeshelf(props.id, e);
             }}
@@ -38,7 +30,7 @@ function book(props) {
         </div>
       </div>
       <div className="book-title">{props.title}</div>
-      <div className="book-authors">{props.author}</div>
+      <div className="book-authors">{props.authors}</div>
     </div>
   );
 }

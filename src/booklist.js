@@ -15,14 +15,14 @@ function booklist(props) {
             <h2 className="bookshelf-title">Currently Reading</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                {props.booklistarray.map((book) =>
-                  book.shelf === "Currently Reading" ? (
+                {props.bookslist.map((book) =>
+                  book.shelf === "currentlyReading" ? (
                     <li key={book.id}>
                       <Book
                         id={book.id}
                         title={book.title}
-                        cover={book.cover}
-                        author={book.author}
+                        thumbnail={book.imageLinks.thumbnail}
+                        authors={book.authors}
                         shelf={book.shelf}
                         changeshelf={props.changeshelf}
                       />
@@ -36,14 +36,14 @@ function booklist(props) {
             <h2 className="bookshelf-title">Want to Read</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                {props.booklistarray.map((book) =>
-                  book.shelf === "Want to Read" ? (
+                {props.bookslist.map((book) =>
+                  book.shelf === "wantToRead" ? (
                     <li key={book.id}>
                       <Book
                         id={book.id}
                         title={book.title}
-                        cover={book.cover}
-                        author={book.author}
+                        thumbnail={book.imageLinks.thumbnail}
+                        authors={book.authors}
                         shelf={book.shelf}
                         changeshelf={props.changeshelf}
                       />
@@ -57,14 +57,14 @@ function booklist(props) {
             <h2 className="bookshelf-title">Read</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                {props.booklistarray.map((book) =>
-                  book.shelf === "Read" ? (
+                {props.bookslist.map((book) =>
+                  book.shelf === "read" ? (
                     <li key={book.id}>
                       <Book
                         id={book.id}
                         title={book.title}
-                        cover={book.cover}
-                        author={book.author}
+                        thumbnail={book.imageLinks.thumbnail}
+                        authors={book.authors}
                         shelf={book.shelf}
                         changeshelf={props.changeshelf}
                       />
