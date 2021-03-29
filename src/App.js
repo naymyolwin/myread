@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import * as BooksAPI from './BooksAPI'
 import "./App.css";
 
@@ -71,7 +72,6 @@ class BooksApp extends React.Component {
           "http://books.google.com/books/content?id=32haAAAAMAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72yckZ5f5bDFVIf7BGPbjA0KYYtlQ__nWB-hI_YZmZ-fScYwFy4O_fWOcPwf-pgv3pPQNJP_sT5J_xOUciD8WaKmevh1rUR-1jk7g1aCD_KeJaOpjVu0cm_11BBIUXdxbFkVMdi&source=gbs_api",
       },
     ],
-    showSearchPage: false,
   };
 
   changeshelf = (id, event) => {
@@ -104,16 +104,21 @@ class BooksApp extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        {this.state.showSearchPage ? (
-          <Searchpage />
-        ) : (
-          <Booklist
-            booklistarray={this.state.booksList}
-            changeshelf={this.changeshelf}
-          />
-        )}
-      </div>
+      <Router>
+        <div className="app">
+          <Switch>
+            <Route exact path="/">
+              <Booklist
+                booklistarray={this.state.booksList}
+                changeshelf={this.changeshelf}
+              />
+            </Route>
+            <Route path="/searchbook">
+              <Searchpage />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

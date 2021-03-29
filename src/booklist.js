@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Book from "./book";
 
@@ -76,7 +77,7 @@ function booklist(props) {
         </div>
       </div>
       <div className="open-search">
-        <button>Add a book</button>
+        <Link to="/searchbook">Add a book</Link>
       </div>
     </div>
   );
