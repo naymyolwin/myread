@@ -30,35 +30,6 @@ class BooksApp extends React.Component {
     BooksAPI.update(book, shelf).then(() => {
       this.reloadBooks();
     });
-    // .then((books) => {
-    //   this.setState(
-    //     () => ({
-    //       booksList: books,
-    //     }),
-    //     () => {
-    //       console.log(this.state.booksList);
-    //     }
-    //   );
-    // });
-
-    // var bookindex = this.state.booksList.findIndex((x) => x.id === id);
-    // if (bookindex === -1) {
-    //   console.log("error");
-    // } else
-    //   this.setState(
-    //     {
-    //       booksList: [
-    //         ...this.state.booksList.slice(0, bookindex),
-    //         Object.assign({}, this.state.booksList[bookindex], {
-    //           shelf: shelf,
-    //         }),
-    //         ...this.state.booksList.slice(bookindex + 1),
-    //       ],
-    //     },
-    //     () => {
-    //       console.log("updating");
-    //     }
-    //   );
   };
 
   render() {

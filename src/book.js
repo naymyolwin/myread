@@ -9,15 +9,14 @@ function book(props) {
           style={{
             width: 128,
             height: 193,
-            backgroundImage: `url(${props.thumbnail})`,
+            backgroundImage: `url(${props.book.imageLinks.thumbnail})`,
           }}
         ></div>
         <div className="book-shelf-changer">
           <select
-            defaultValue={props.shelf}
+            defaultValue={props.book.shelf}
             onChange={(e) => {
               return props.changeshelf(props.book, e);
-              //return props.changeshelf(props.id, e);
             }}
           >
             <option value="move" disabled>
@@ -30,8 +29,8 @@ function book(props) {
           </select>
         </div>
       </div>
-      <div className="book-title">{props.title}</div>
-      <div className="book-authors">{props.authors}</div>
+      <div className="book-title">{props.book.title}</div>
+      <div className="book-authors">{props.book.authors}</div>
     </div>
   );
 }

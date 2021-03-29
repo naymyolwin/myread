@@ -18,15 +18,7 @@ function booklist(props) {
                 {props.bookslist.map((book) =>
                   book.shelf === "currentlyReading" ? (
                     <li key={book.id}>
-                      <Book
-                        book={book}
-                        id={book.id}
-                        title={book.title}
-                        thumbnail={book.imageLinks.thumbnail}
-                        authors={book.authors}
-                        shelf={book.shelf}
-                        changeshelf={props.changeshelf}
-                      />
+                      <Book book={book} changeshelf={props.changeshelf} />
                     </li>
                   ) : null
                 )}
@@ -40,15 +32,7 @@ function booklist(props) {
                 {props.bookslist.map((book) =>
                   book.shelf === "wantToRead" ? (
                     <li key={book.id}>
-                      <Book
-                        book={book}
-                        id={book.id}
-                        title={book.title}
-                        thumbnail={book.imageLinks.thumbnail}
-                        authors={book.authors}
-                        shelf={book.shelf}
-                        changeshelf={props.changeshelf}
-                      />
+                      <Book book={book} changeshelf={props.changeshelf} />
                     </li>
                   ) : null
                 )}
@@ -62,15 +46,7 @@ function booklist(props) {
                 {props.bookslist.map((book) =>
                   book.shelf === "read" ? (
                     <li key={book.id}>
-                      <Book
-                        book={book}
-                        id={book.id}
-                        title={book.title}
-                        thumbnail={book.imageLinks.thumbnail}
-                        authors={book.authors}
-                        shelf={book.shelf}
-                        changeshelf={props.changeshelf}
-                      />
+                      <Book book={book} changeshelf={props.changeshelf} />
                     </li>
                   ) : null
                 )}
