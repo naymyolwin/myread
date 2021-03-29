@@ -74,13 +74,44 @@ class BooksApp extends React.Component {
     showSearchPage: false,
   };
 
+  changeshelf = (id, event) => {
+    console.log(event.target.value);
+    console.log(id);
+
+    const shelf =
+      event.target.value === "currentlyReading"
+        ? "Currently Reading"
+        : event.target.value === "wantToRead"
+        ? "Want to Read"
+        : event.target.value === "read"
+        ? "Read"
+        : "None";
+
+    var bookindex = this.state.booksList.findIndex((x) => x.id === id);
+    if (bookindex === -1) {
+      console.log("error");
+    } else
+      this.setState({
+        booksList: [
+          ...this.state.booksList.slice(0, bookindex),
+          Object.assign({}, this.state.booksList[bookindex], {
+            shelf: shelf,
+          }),
+          ...this.state.booksList.slice(bookindex + 1),
+        ],
+      });
+  };
+
   render() {
     return (
       <div className="app">
         {this.state.showSearchPage ? (
           <Searchpage />
         ) : (
-          <Booklist booklistarray={this.state.booksList} />
+          <Booklist
+            booklistarray={this.state.booksList}
+            changeshelf={this.changeshelf}
+          />
         )}
       </div>
     );

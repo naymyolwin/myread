@@ -13,7 +13,11 @@ function book(props) {
           }}
         ></div>
         <div className="book-shelf-changer">
-          <select>
+          <select
+            onChange={(e) => {
+              return props.changeshelf(props.id, e);
+            }}
+          >
             <option value="move" disabled>
               Move to...
             </option>
