@@ -54,7 +54,6 @@ class BooksApp extends React.Component {
       },
       () => {
         const booksListID = new Set(this.state.booksList.map(({ id }) => id));
-        console.log(booksListID);
         this.state.query.length > 0
           ? BooksAPI.search(this.state.query).then((books) => {
               books.length > 1

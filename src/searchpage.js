@@ -11,6 +11,7 @@ function searchpage(props) {
         </Link>
         <div className="search-books-input-wrapper">
           <input
+            autoFocus
             onChange={props.searchInputHandler}
             value={props.query}
             type="text"
