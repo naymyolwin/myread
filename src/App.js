@@ -8,6 +8,7 @@ import Booklist from "./booklist";
 
 class BooksApp extends React.Component {
   state = {
+    query: "",
     booksList: [],
     searchBooksList: [],
   };
@@ -32,6 +33,42 @@ class BooksApp extends React.Component {
     });
   };
 
+  emptyBookList = () => {
+    this.setState(() => ({
+      searchBooksList: [],
+    }));
+  };
+
+  handleClose = () => {
+    this.setState({
+      query: "",
+      searchBooksList: [],
+    });
+  };
+
+  searchInputHandler = (event) => {
+    this.setState(
+      {
+        query: event.target.value,
+        searchBooksList: [],
+      },
+      () => {
+        this.state.query.length > 0
+          ? BooksAPI.search(this.state.query).then((books) => {
+              this.setState(
+                () => ({
+                  searchBooksList: books,
+                }),
+                () => {
+                  this.state.query.length === 0 && this.emptyBookList();
+                }
+              );
+            })
+          : this.emptyBookList();
+      }
+    );
+  };
+
   render() {
     return (
       <Router>
@@ -47,8 +84,10 @@ class BooksApp extends React.Component {
               <Searchpage
                 query={this.state.query}
                 searchInputHandler={this.searchInputHandler}
-                bookslist={this.state.booksList}
-                searchbooks={this.searchbooks}
+                changeshelf={this.changeshelf}
+                handleClose={this.handleClose}
+                //bookslist={this.state.booksList}
+                //searchbooks={this.searchbooks}
                 searchBooksList={this.state.searchBooksList}
               />
             </Route>

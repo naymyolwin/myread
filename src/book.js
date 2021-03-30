@@ -14,7 +14,7 @@ function book(props) {
         ></div>
         <div className="book-shelf-changer">
           <select
-            defaultValue={props.book.shelf}
+            defaultValue={props.shelf}
             onChange={(e) => {
               return props.changeshelf(props.book, e);
             }}
