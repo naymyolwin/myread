@@ -53,15 +53,25 @@ class BooksApp extends React.Component {
         searchBooksList: [],
       },
       () => {
-        const booksListID = new Set(this.state.booksList.map(({ id }) => id));
+        //    const booksListID = new Set(this.state.booksList.map(({ id }) => id));
         this.state.query.length > 0
           ? BooksAPI.search(this.state.query).then((books) => {
+              console.log(books.length);
               books.length > 1
                 ? this.setState(
                     () => ({
-                      searchBooksList: [
-                        ...books.filter(({ id }) => !booksListID.has(id)),
-                      ],
+                      //======== Remove from the search list if book is already in shelf
+                      // searchBooksList: [
+                      //   ...books.filter(({ id }) => !booksListID.has(id)),
+                      // ],
+                      //========
+                      //======== Update search list with the shelf if alread added.
+
+                      searchBooksList: books.map((t1) => ({
+                        ...t1,
+                        ...this.state.booksList.find((t2) => t2.id === t1.id),
+                      })),
+                      //========
                     }),
                     () => {
                       this.state.query.length === 0 && this.emptyBookList();

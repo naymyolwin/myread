@@ -25,7 +25,7 @@ function searchpage(props) {
             <li key={book.id}>
               <Book
                 book={book}
-                shelf={"none"}
+                shelf={book.shelf ? book.shelf : "none"}
                 changeshelf={props.changeshelf}
               />
             </li>
