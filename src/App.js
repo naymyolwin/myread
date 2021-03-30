@@ -53,16 +53,22 @@ class BooksApp extends React.Component {
         searchBooksList: [],
       },
       () => {
+        const booksListID = new Set(this.state.booksList.map(({ id }) => id));
+        console.log(booksListID);
         this.state.query.length > 0
           ? BooksAPI.search(this.state.query).then((books) => {
-              this.setState(
-                () => ({
-                  searchBooksList: books,
-                }),
-                () => {
-                  this.state.query.length === 0 && this.emptyBookList();
-                }
-              );
+              books.length > 1
+                ? this.setState(
+                    () => ({
+                      searchBooksList: [
+                        ...books.filter(({ id }) => !booksListID.has(id)),
+                      ],
+                    }),
+                    () => {
+                      this.state.query.length === 0 && this.emptyBookList();
+                    }
+                  )
+                : this.emptyBookList();
             })
           : this.emptyBookList();
       }
@@ -86,8 +92,6 @@ class BooksApp extends React.Component {
                 searchInputHandler={this.searchInputHandler}
                 changeshelf={this.changeshelf}
                 handleClose={this.handleClose}
-                //bookslist={this.state.booksList}
-                //searchbooks={this.searchbooks}
                 searchBooksList={this.state.searchBooksList}
               />
             </Route>
