@@ -68,7 +68,7 @@ function booklist(props) {
         </div>
       </div>
       <div className="open-search">
-        <Link to="/searchbook">Add a book</Link>
+        <Link to="/search">Add a book</Link>
       </div>
     </div>
   );

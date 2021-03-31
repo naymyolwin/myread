@@ -95,7 +95,7 @@ class BooksApp extends React.Component {
                 changeshelf={this.changeshelf}
               />
             </Route>
-            <Route path="/searchbook">
+            <Route path="/search">
               <Searchpage
                 query={this.state.query}
                 searchInputHandler={this.searchInputHandler}
