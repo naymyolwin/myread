@@ -18,5 +18,5 @@ this is Udacity nanodegree project. Which developed with React to track the book
 
 # Author
 
-Udacity ( BookApi and Desing CSS)
+Udacity ( BookApi and Design CSS)
 Nay Myo Lwin ( Functionality )
